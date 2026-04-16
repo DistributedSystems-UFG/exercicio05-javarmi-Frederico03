@@ -26,6 +26,13 @@ public class Client {
 
             int result = stub.soma(100,1000);
             System.out.println("Response from soma: " + result);
+
+            int subResult = stub.subtracao(1000, 100);
+            System.out.println("Response from subtracao: " + subResult);
+            
+            Calculadora calcStub = (Calculadora) Naming.lookup("rmi://" + host + "/MyCalculadora");
+            int multResult = calcStub.multiplicacao(5, 5);
+            System.out.println("Response from MyCalculadora multiplicacao: " + multResult);
             
         } catch (Exception e) {
             System.err.println("Client exception: " + e.toString());

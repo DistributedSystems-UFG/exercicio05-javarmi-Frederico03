@@ -16,10 +16,11 @@ public class Server {
             Registry registry = LocateRegistry.getRegistry("localhost");
             
             HelloImplem obj = new HelloImplem(5678);
-            //Hello stub = (Hello) UnicastRemoteObject.exportObject(obj, 5678);
+            CalculadoraImplem calcObj = new CalculadoraImplem(5679);
 
             // Bind the remote object's stub in the registry
             Naming.rebind("MyHello", obj);
+            Naming.rebind("MyCalculadora", calcObj);
 
             System.err.println("Server ready");
         } catch (Exception e) {
